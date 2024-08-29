@@ -1,13 +1,13 @@
-package com.oing.bibbi
+package com.bibbi
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class BibbiApplicationTests {
+class ServerApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+    }
 
 }
