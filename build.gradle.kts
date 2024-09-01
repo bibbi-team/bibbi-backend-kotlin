@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25" apply false
+	kotlin("plugin.jpa") version "1.9.23" apply false
 	id("org.springframework.boot") version "3.3.3" apply false
 	id("io.spring.dependency-management") version "1.1.6" apply false
 
@@ -39,6 +40,7 @@ subprojects {
 	apply(plugin = "kotlin")
 	apply(plugin = "kotlin-kapt")
 	apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+	apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
 
 	configurations {
 		compileOnly {
