@@ -43,8 +43,7 @@ data class Post(
         private fun validateContent(content: String?) {
             content?.let {
                 if (it.codePoints().count() > 8 || it.contains(" ")) {
-                    // 임시 예외 처리
-                    throw IllegalArgumentException("Content is invalid")
+                    throw IllegalArgumentException()
                 }
             }
         }
