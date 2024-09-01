@@ -18,10 +18,8 @@ class CommentEntity private constructor(
     @Column(name = "comment_id", columnDefinition = "CHAR(26)", nullable = false)
     val id: String,
 
-    // TODO: Post 엔티티의 아이디를 가지고 many to one은 제거
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id", nullable = false)
-    val post: PostEntity,
+    @Column(name = "post_id", nullable = false)
+    val postId: String,
 
     @Column(name = "member_id", columnDefinition = "CHAR(26)", nullable = false)
     val memberId: String,
@@ -31,7 +29,7 @@ class CommentEntity private constructor(
 ) {
     fun toDomain() = Comment(
         id = id,
-        postId = post.id,
+        postId = postId,
         memberId = memberId,
         content = content
     )
@@ -50,10 +48,10 @@ class CommentEntity private constructor(
     }
 
     companion object {
-        fun fromDomain(comment: Comment, post: PostEntity) = with(comment) {
+        fun fromDomain(comment: Comment) = with(comment) {
             CommentEntity(
                 id = id,
-                post = post,
+                postId = postId,
                 memberId = memberId,
                 content = content
             )

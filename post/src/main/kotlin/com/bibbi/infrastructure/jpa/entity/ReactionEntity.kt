@@ -14,9 +14,8 @@ class ReactionEntity private constructor(
     @Column(name = "reaction_id", columnDefinition = "CHAR(26)", nullable = false)
     val id: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id", nullable = false)
-    val post: PostEntity,
+    @Column(name = "post_id", nullable = false)
+    val postId: String,
 
     @Column(name = "member_id", columnDefinition = "CHAR(26)", nullable = false)
     val memberId: String,
@@ -27,19 +26,10 @@ class ReactionEntity private constructor(
 ) {
     fun toDomain() = Reaction(
         id = id,
-        postId = post.id,
+        postId = postId,
         memberId = memberId,
         emoji = emoji
     )
-
-    companion object {
-        fun fromDomain(reaction: Reaction, post: PostEntity) = ReactionEntity(
-            id = reaction.id,
-            post = post,
-            memberId = reaction.memberId,
-            emoji = reaction.emoji
-        )
-    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -52,5 +42,16 @@ class ReactionEntity private constructor(
 
     override fun hashCode(): Int {
         return id.hashCode()
+    }
+
+    companion object {
+        fun fromDomain(reaction: Reaction) = with(reaction) {
+            ReactionEntity(
+                id = id,
+                postId = postId,
+                memberId = memberId,
+                emoji = emoji
+            )
+        }
     }
 }

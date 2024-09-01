@@ -13,32 +13,21 @@ class RealEmojiEntity private constructor(
     @Column(name = "real_emoji_id", columnDefinition = "CHAR(26)", nullable = false)
     val id: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_real_emoji_id", nullable = false)
-    val realEmoji: MemberRealEmojiEntity,
+    @Column(name = "member_real_emoji_id", nullable = false)
+    val memberRealEmojiId: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id", nullable = false)
-    val post: PostEntity,
+    @Column(name = "post_id", nullable = false)
+    val postId: String,
 
     @Column(name = "member_id", columnDefinition = "CHAR(26)", nullable = false)
     val memberId: String
 ) {
     fun toDomain() = RealEmoji(
         id = id,
-        realEmojiId = realEmoji.id,
-        postId = post.id,
+        memberRealEmojiId = memberRealEmojiId,
+        postId = postId,
         memberId = memberId
     )
-
-    companion object {
-        fun fromDomain(realEmoji: RealEmoji, memberRealEmoji: MemberRealEmojiEntity, post: PostEntity) = RealEmojiEntity(
-            id = realEmoji.id,
-            realEmoji = memberRealEmoji,
-            post = post,
-            memberId = realEmoji.memberId
-        )
-    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -51,5 +40,16 @@ class RealEmojiEntity private constructor(
 
     override fun hashCode(): Int {
         return id.hashCode()
+    }
+
+    companion object {
+        fun fromDomain(realEmoji: RealEmoji) = with(realEmoji) {
+            RealEmojiEntity(
+                id = id,
+                memberRealEmojiId = memberRealEmojiId,
+                postId = postId,
+                memberId = memberId
+            )
+        }
     }
 }
