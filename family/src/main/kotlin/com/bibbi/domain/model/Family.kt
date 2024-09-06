@@ -1,8 +1,12 @@
 package com.bibbi.domain.model
 
+import java.time.LocalDateTime
+
 data class Family(
     val familyId: String,
-    var score: Int
+    var score: Int,
+    val createdAt: LocalDateTime?,
+    val updatedAt: LocalDateTime?,
 ) {
     fun addNewPostScore() { addScore(NEW_POST_SCORE) }
     fun subtractNewPostScore() { subtractScore(NEW_POST_SCORE) }

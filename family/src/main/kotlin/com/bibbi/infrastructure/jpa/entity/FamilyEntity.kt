@@ -18,7 +18,9 @@ class FamilyEntity (
 ) : BaseEntity() {
     fun toDomain() = Family(
         familyId = familyId,
-        score = score
+        score = score,
+        createdAt = createdAt,
+        updatedAt = updatedAt,
     )
 
     companion object {

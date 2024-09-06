@@ -21,7 +21,9 @@ class TopPercentageHistoryEntity (
     fun toDomain() = TopPercentageHistory (
         topPercentageHistoryId = topPercentageHistoryId.toDomain(),
         family = family.toDomain(),
-        topPercentage = topPercentage
+        topPercentage = topPercentage,
+        createdAt = createdAt,
+        updatedAt = updatedAt,
     )
 
     companion object {
