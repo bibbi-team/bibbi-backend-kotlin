@@ -1,6 +1,6 @@
 package com.bibbi.infrastructure.jpa.entity
 
-import com.bibbi.domain.entity.BaseEntity
+import com.bibbi.infrastructure.jpa.entity.BaseEntity
 import com.bibbi.domain.entity.Emoji
 import com.bibbi.domain.entity.Reaction
 import jakarta.persistence.*
