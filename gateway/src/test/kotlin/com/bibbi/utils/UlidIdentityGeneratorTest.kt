@@ -1,4 +1,4 @@
-package com.bibbi.component
+package com.bibbi.utils
 
 import org.hibernate.validator.internal.util.Contracts.assertNotNull
 import org.hibernate.validator.internal.util.Contracts.assertTrue

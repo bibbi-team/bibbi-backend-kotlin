@@ -1,4 +1,4 @@
-package com.bibbi.component
+package com.bibbi.utils
 
 import com.bibbi.util.IdentityGenerator
 import com.github.f4b6a3.ulid.UlidCreator
