@@ -1,6 +1,5 @@
 package com.bibbi.infrastructure.jpa.entity
 
-import com.bibbi.infrastructure.jpa.entity.BaseEntity
 import com.bibbi.domain.model.Comment
 import jakarta.persistence.*
 import lombok.*
