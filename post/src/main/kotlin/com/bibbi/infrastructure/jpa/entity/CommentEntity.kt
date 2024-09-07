@@ -1,5 +1,6 @@
 package com.bibbi.infrastructure.jpa.entity
 
+import com.bibbi.domain.BaseEntity
 import com.bibbi.domain.entity.Comment
 import jakarta.persistence.*
 import lombok.*
@@ -26,7 +27,8 @@ class CommentEntity private constructor(
 
     @Column(name = "content", nullable = false)
     var content: String
-) {
+) : BaseEntity() {
+
     fun toDomain() = Comment(
         id = id,
         postId = postId,

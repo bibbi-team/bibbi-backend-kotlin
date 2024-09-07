@@ -1,5 +1,6 @@
 package com.bibbi.infrastructure.jpa.entity
 
+import com.bibbi.domain.BaseEntity
 import com.bibbi.domain.entity.Emoji
 import com.bibbi.domain.entity.Reaction
 import jakarta.persistence.*
@@ -23,7 +24,8 @@ class ReactionEntity private constructor(
     @Enumerated(EnumType.STRING)
     @Column(name = "emoji", nullable = false)
     val emoji: Emoji
-) {
+) : BaseEntity() {
+
     fun toDomain() = Reaction(
         id = id,
         postId = postId,

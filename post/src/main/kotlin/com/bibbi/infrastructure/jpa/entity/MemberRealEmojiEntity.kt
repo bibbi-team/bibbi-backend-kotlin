@@ -1,5 +1,6 @@
 package com.bibbi.infrastructure.jpa.entity
 
+import com.bibbi.domain.BaseEntity
 import com.bibbi.domain.entity.Emoji
 import com.bibbi.domain.entity.MemberRealEmoji
 import jakarta.persistence.*
@@ -33,7 +34,8 @@ class MemberRealEmojiEntity private constructor(
 
     @Column(name = "real_emoji_image_key", nullable = false)
     var realEmojiImageKey: String
-) {
+) : BaseEntity() {
+
     fun toDomain() = MemberRealEmoji(
         id = id,
         memberId = memberId,

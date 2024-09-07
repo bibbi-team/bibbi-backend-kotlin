@@ -1,5 +1,6 @@
 package com.bibbi.infrastructure.jpa.entity
 
+import com.bibbi.domain.BaseEntity
 import com.bibbi.domain.entity.Post
 import com.bibbi.domain.entity.PostType
 import jakarta.persistence.*
@@ -48,7 +49,8 @@ class PostEntity private constructor(
 
     @Column(name = "real_emoji_cnt", nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     var realEmojiCnt: Int = 0
-) {
+) : BaseEntity() {
+
     fun toDomain() = Post(
         id = id,
         memberId = memberId,
