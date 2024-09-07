@@ -1,4 +1,4 @@
-package com.bibbi.domain
+package com.bibbi.domain.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners
