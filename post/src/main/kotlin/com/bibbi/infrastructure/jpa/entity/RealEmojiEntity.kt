@@ -2,7 +2,12 @@ package com.bibbi.infrastructure.jpa.entity
 
 import com.bibbi.domain.model.RealEmoji
 import jakarta.persistence.*
+import lombok.*
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EqualsAndHashCode(callSuper = false)
+@AllArgsConstructor
+@Getter
 @Entity(name = "real_emoji")
 @Table(indexes = [
     Index(name = "real_emoji_idx1", columnList = "post_id"),
