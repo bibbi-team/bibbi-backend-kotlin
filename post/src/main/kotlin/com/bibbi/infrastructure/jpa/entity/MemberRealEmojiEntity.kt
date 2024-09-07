@@ -1,8 +1,8 @@
 package com.bibbi.infrastructure.jpa.entity
 
 import com.bibbi.infrastructure.jpa.entity.BaseEntity
-import com.bibbi.domain.entity.Emoji
-import com.bibbi.domain.entity.MemberRealEmoji
+import com.bibbi.domain.model.Emoji
+import com.bibbi.domain.model.MemberRealEmoji
 import jakarta.persistence.*
 import lombok.*
 

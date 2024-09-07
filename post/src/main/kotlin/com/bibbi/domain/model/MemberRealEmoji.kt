@@ -1,4 +1,4 @@
-package com.bibbi.domain.entity
+package com.bibbi.domain.model
 
 data class MemberRealEmoji(
     val id: String,
