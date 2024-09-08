@@ -1,6 +1,6 @@
 package com.bibbi.infrastructure.jpa.entity
 
-import com.bibbi.domain.model.Comment
+import com.bibbi.domain.model.Mission
 import jakarta.persistence.*
 import lombok.*
 
@@ -8,30 +8,21 @@ import lombok.*
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @Getter
-@Entity(name = "comment")
+@Entity(name = "mission")
 @Table(indexes = [
-    Index(name = "comment_idx1", columnList = "post_id"),
-    Index(name = "comment_idx2", columnList = "member_id")
+    Index(name = "mission_idx", columnList = "mission_id")
 ])
-class CommentEntity private constructor(
+class MissionEntity private constructor(
     @Id
-    @Column(name = "comment_id", columnDefinition = "CHAR(26)", nullable = false)
+    @Column(name = "mission_id", columnDefinition = "CHAR(26)", nullable = false)
     val id: String,
-
-    @Column(name = "post_id", nullable = false)
-    val postId: String,
-
-    @Column(name = "member_id", columnDefinition = "CHAR(26)", nullable = false)
-    val memberId: String,
 
     @Column(name = "content", nullable = false)
     var content: String
 ) : BaseEntity() {
 
-    fun toDomain() = Comment(
+    fun toDomain() = Mission(
         id = id,
-        postId = postId,
-        memberId = memberId,
         content = content
     )
 
@@ -39,7 +30,7 @@ class CommentEntity private constructor(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as CommentEntity
+        other as MissionEntity
 
         return id == other.id
     }
@@ -49,11 +40,9 @@ class CommentEntity private constructor(
     }
 
     companion object {
-        fun fromDomain(comment: Comment) = with(comment) {
-            CommentEntity(
+        fun fromDomain(mission: Mission) = with(mission) {
+            MissionEntity(
                 id = id,
-                postId = postId,
-                memberId = memberId,
                 content = content
             )
         }

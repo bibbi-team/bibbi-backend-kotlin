@@ -4,7 +4,7 @@ data class Comment(
     val id: String,
     val postId: String,
     val memberId: String,
-    val content: String
+    var content: String
 ) {
     companion object {
         fun newComment(
@@ -22,7 +22,7 @@ data class Comment(
         }
     }
 
-    fun updateContent(newContent: String): Comment {
-        return this.copy(content = newContent)
+    fun updateContent(newContent: String) {
+        this.content = newContent
     }
 }
