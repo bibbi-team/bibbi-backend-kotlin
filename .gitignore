@@ -38,3 +38,8 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+
+### Development Environment ###
+application-local.yaml
+.env
