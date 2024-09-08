@@ -3,11 +3,21 @@ package com.bibbi.domain.model
 import java.time.LocalDateTime
 
 data class Family(
+
     val familyId: String,
     var score: Int,
     val createdAt: LocalDateTime?,
     val updatedAt: LocalDateTime?,
+
 ) {
+    companion object {
+        const val NEW_POST_SCORE = 20
+        const val ALL_FAMILY_MEMBERS_POSTS_UPLOADED_SCORE = 50
+        const val NEW_COMMENT_SCORE = 5
+        const val NEW_REACTION_SCORE = 1
+        const val NEW_REAL_EMOJI_SCORE = 3
+    }
+
     fun addNewPostScore() { addScore(NEW_POST_SCORE) }
     fun subtractNewPostScore() { subtractScore(NEW_POST_SCORE) }
 
@@ -24,14 +34,8 @@ data class Family(
     fun subtractNewRealEmojiScore() { subtractScore(NEW_REAL_EMOJI_SCORE) }
 
     fun addScore(score : Int) { this.score += score }
-    fun subtractScore(score : Int) { this.score -= score }
-    fun resetScore() { this.score = 0 }
 
-    companion object {
-        const val NEW_POST_SCORE = 20
-        const val ALL_FAMILY_MEMBERS_POSTS_UPLOADED_SCORE = 50
-        const val NEW_COMMENT_SCORE = 5
-        const val NEW_REACTION_SCORE = 1
-        const val NEW_REAL_EMOJI_SCORE = 3
-    }
+    fun subtractScore(score : Int) { this.score -= score }
+
+    fun resetScore() { this.score = 0 }
 }

@@ -16,12 +16,6 @@ class FamilyInviteLinkEntity (
     val familyId : String,
 
 ) : BaseEntity() {
-    fun toDomain() = FamilyInviteLink(
-        linkId = linkId,
-        familyId = familyId,
-        createdAt = createdAt,
-        updatedAt = updatedAt,
-    )
 
     companion object {
         fun fromDomain(familyInviteLink: FamilyInviteLink) = with(familyInviteLink) {
@@ -31,4 +25,11 @@ class FamilyInviteLinkEntity (
             )
         }
     }
+
+    fun toDomain() = FamilyInviteLink(
+        linkId = linkId,
+        familyId = familyId,
+        createdAt = createdAt,
+        updatedAt = updatedAt,
+    )
 }

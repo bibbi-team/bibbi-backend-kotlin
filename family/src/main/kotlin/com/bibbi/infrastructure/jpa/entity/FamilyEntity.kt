@@ -16,12 +16,6 @@ class FamilyEntity (
     val score : Int
 
 ) : BaseEntity() {
-    fun toDomain() = Family(
-        familyId = familyId,
-        score = score,
-        createdAt = createdAt,
-        updatedAt = updatedAt,
-    )
 
     companion object {
         fun fromDomain(family: Family) = with(family) {
@@ -31,4 +25,11 @@ class FamilyEntity (
             )
         }
     }
+
+    fun toDomain() = Family (
+        familyId = familyId,
+        score = score,
+        createdAt = createdAt,
+        updatedAt = updatedAt,
+    )
 }
