@@ -2,7 +2,7 @@ package com.bibbi.domain.model
 
 data class Mission(
     val id: String,
-    val content: String
+    var content: String
 ) {
     companion object {
         fun newMission(id: String, content: String): Mission {
@@ -10,7 +10,7 @@ data class Mission(
         }
     }
 
-    fun updateContent(newContent: String): Mission {
-        return this.copy(content = newContent)
+    fun updateContent(newContent: String) {
+        this.content = newContent
     }
 }
