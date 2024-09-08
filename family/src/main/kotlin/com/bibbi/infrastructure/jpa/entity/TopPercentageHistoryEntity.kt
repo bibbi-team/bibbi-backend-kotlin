@@ -1,13 +1,24 @@
 package com.bibbi.infrastructure.jpa.entity
 
 import com.bibbi.domain.model.TopPercentageHistory
+import com.bibbi.infrastructure.jpa.entity.key.TopPercentageHistoryId
 import jakarta.persistence.*
 
 @Entity(name = "family_top_percentage_history")
+@IdClass(TopPercentageHistoryId::class)
 class TopPercentageHistoryEntity (
 
-    @EmbeddedId
-    val topPercentageHistoryId: TopPercentageHistoryIdEntity,
+    @Id
+    @Column(name = "family_id", length = 26, columnDefinition = "CHAR(26)", nullable = false)
+    val familyId: String,
+
+    @Id
+    @Column(name = "history_year", nullable = false)
+    val year: Int,
+
+    @Id
+    @Column(name = "history_month", nullable = false)
+    val month: Int,
 
     @MapsId("familyId")
     @ManyToOne(fetch = FetchType.LAZY)
@@ -19,7 +30,9 @@ class TopPercentageHistoryEntity (
 ) : BaseEntity() {
 
     fun toDomain() = TopPercentageHistory (
-        topPercentageHistoryId = topPercentageHistoryId.toDomain(),
+        familyId = familyId,
+        year = year,
+        month = month,
         family = family.toDomain(),
         topPercentage = topPercentage,
         createdAt = createdAt,
@@ -29,7 +42,9 @@ class TopPercentageHistoryEntity (
     companion object {
         fun fromDomain(topPercentageHistory: TopPercentageHistory) = with(topPercentageHistory) {
             TopPercentageHistoryEntity(
-                topPercentageHistoryId = TopPercentageHistoryIdEntity.fromDomain(topPercentageHistoryId),
+                familyId = familyId,
+                year = year,
+                month = month,
                 family = FamilyEntity.fromDomain(family),
                 topPercentage = topPercentage
             )

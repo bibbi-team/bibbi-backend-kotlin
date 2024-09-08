@@ -1,14 +1,9 @@
-package com.bibbi.infrastructure.jpa.entity
+package com.bibbi.infrastructure.jpa.entity.key
 
-import com.bibbi.domain.model.TopPercentageHistoryId
 import jakarta.persistence.Column
-import jakarta.persistence.Embeddable
-import lombok.EqualsAndHashCode
 import java.io.Serializable
 
-@Embeddable
-@EqualsAndHashCode
-class TopPercentageHistoryIdEntity (
+class TopPercentageHistoryId (
 
     @Column(name = "family_id", length = 26, columnDefinition = "CHAR(26)", nullable = false)
     val familyId: String,
@@ -27,7 +22,7 @@ class TopPercentageHistoryIdEntity (
 
     companion object {
         fun fromDomain(topPercentageHistoryId: TopPercentageHistoryId) = with(topPercentageHistoryId) {
-            TopPercentageHistoryIdEntity(
+            TopPercentageHistoryId(
                 familyId = familyId,
                 year = year,
                 month = month
