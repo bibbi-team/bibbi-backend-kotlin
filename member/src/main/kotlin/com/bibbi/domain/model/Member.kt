@@ -12,8 +12,6 @@ data class Member (
     var profileImageUrl : String?,
     var profileImgKey : String?,
     var familyJoinAt : LocalDateTime?,
-    val createdAt : LocalDateTime?,
-    var updatedAt : LocalDateTime?,
     var deletedAt : LocalDateTime?,
 ) {
 
