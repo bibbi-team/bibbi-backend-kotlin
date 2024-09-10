@@ -6,8 +6,8 @@ data class FamilyInviteLink (
 
     val linkId: String,
     val familyId: String,
-    val createdAt: LocalDateTime?,
-    val updatedAt: LocalDateTime?,
+    val createdAt: LocalDateTime,
+    val updatedAt: LocalDateTime,
 
 ) : SerializableDeepLink {
 

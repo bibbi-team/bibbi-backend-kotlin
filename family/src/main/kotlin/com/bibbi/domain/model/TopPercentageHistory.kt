@@ -8,7 +8,7 @@ data class TopPercentageHistory (
     val year: Int,
     val month: Int,
     var topPercentage: Int,
-    val createdAt : LocalDateTime?,
-    val updatedAt : LocalDateTime?,
+    val createdAt : LocalDateTime,
+    val updatedAt : LocalDateTime,
 
 )

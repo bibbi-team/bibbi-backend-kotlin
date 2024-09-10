@@ -6,8 +6,8 @@ data class Family(
 
     val familyId: String,
     var score: Int,
-    val createdAt: LocalDateTime?,
-    val updatedAt: LocalDateTime?,
+    val createdAt: LocalDateTime,
+    val updatedAt: LocalDateTime,
 
 ) {
     companion object {
