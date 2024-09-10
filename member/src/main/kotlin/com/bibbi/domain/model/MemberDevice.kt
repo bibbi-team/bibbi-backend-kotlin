@@ -6,7 +6,7 @@ data class MemberDevice (
 
     val memberId : String,
     var fcmToken : String,
-    val createdAt : LocalDateTime?,
-    val updatedAt : LocalDateTime?,
+    val createdAt : LocalDateTime,
+    val updatedAt : LocalDateTime,
 
 )
