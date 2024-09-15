@@ -11,17 +11,17 @@ import java.time.LocalDateTime
 class PostGatewayImpl(
     private val jpaPostRepository: JpaPostRepository
 ) : PostGateway {
+    override fun save(post: Post): Post {
+        return jpaPostRepository
+            .save(PostEntity.fromDomain(post))
+            .toDomain()
+    }
+
     override fun findById(postId: String): Post? {
         return jpaPostRepository
             .findById(postId)
             .orElse(null)
             ?.toDomain()
-    }
-
-    override fun save(post: Post): Post {
-        return jpaPostRepository
-            .save(PostEntity.fromDomain(post))
-            .toDomain()
     }
 
     override fun findAllByFamilyIdAndCreatedAtBetween(
