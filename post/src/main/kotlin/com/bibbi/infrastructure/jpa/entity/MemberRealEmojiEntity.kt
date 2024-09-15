@@ -3,12 +3,7 @@ package com.bibbi.infrastructure.jpa.entity
 import com.bibbi.domain.model.Emoji
 import com.bibbi.domain.model.MemberRealEmoji
 import jakarta.persistence.*
-import lombok.*
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode(callSuper = false)
-@AllArgsConstructor
-@Getter
 @Entity(name = "member_real_emoji")
 @Table(indexes = [
     Index(name = "member_real_emoji_idx1", columnList = "member_id")

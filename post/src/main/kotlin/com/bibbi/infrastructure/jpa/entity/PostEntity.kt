@@ -3,12 +3,7 @@ package com.bibbi.infrastructure.jpa.entity
 import com.bibbi.domain.model.Post
 import com.bibbi.domain.model.PostType
 import jakarta.persistence.*
-import lombok.*
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode(callSuper = false)
-@AllArgsConstructor
-@Getter
 @Entity(name = "post")
 @Table(indexes = [
     Index(name = "post_idx1", columnList = "member_id")
