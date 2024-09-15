@@ -8,7 +8,7 @@ import com.bibbi.infrastructure.jpa.repository.JpaReactionRepository
 import org.springframework.stereotype.Component
 
 @Component
-class ReactionGatewayImpl (
+class ReactionGatewayImpl(
     private val jpaReactionRepository: JpaReactionRepository
 ) : ReactionGateway {
     override fun save(reaction: Reaction): Reaction {
