@@ -1,13 +1,9 @@
 package com.bibbi.domain.model
 
-import java.time.LocalDateTime
-
 data class Family(
 
     val familyId: String,
     var score: Int,
-    val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime,
 
 ) {
     companion object {

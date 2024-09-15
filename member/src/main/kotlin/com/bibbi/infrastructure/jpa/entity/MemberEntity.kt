@@ -43,8 +43,6 @@ class MemberEntity (
         profileImageUrl = profileImageUrl,
         profileImgKey = profileImgKey,
         familyJoinAt = familyJoinAt,
-        createdAt = createdAt,
-        updatedAt = updatedAt,
         deletedAt = deletedAt,
     )
 

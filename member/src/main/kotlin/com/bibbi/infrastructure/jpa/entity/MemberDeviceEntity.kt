@@ -33,7 +33,5 @@ class MemberDeviceEntity (
     fun toDomain() = MemberDevice (
         memberId = memberId,
         fcmToken = fcmToken,
-        createdAt = createdAt,
-        updatedAt = updatedAt,
     )
 }
