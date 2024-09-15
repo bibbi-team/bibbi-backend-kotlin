@@ -29,7 +29,5 @@ class FamilyEntity (
     fun toDomain() = Family (
         familyId = familyId,
         score = score,
-        createdAt = createdAt,
-        updatedAt = updatedAt,
     )
 }

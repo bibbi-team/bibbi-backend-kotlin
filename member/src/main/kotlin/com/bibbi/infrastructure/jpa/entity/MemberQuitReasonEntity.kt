@@ -32,7 +32,5 @@ class MemberQuitReasonEntity (
     fun toDomain() = MemberQuitReason(
         memberId = memberId,
         reasonId = reasonId,
-        createdAt = createdAt,
-        updatedAt = updatedAt
     )
 }

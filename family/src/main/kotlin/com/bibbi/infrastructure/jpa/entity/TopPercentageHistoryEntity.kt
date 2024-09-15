@@ -41,7 +41,5 @@ class TopPercentageHistoryEntity (
         year = year,
         month = month,
         topPercentage = topPercentage,
-        createdAt = createdAt,
-        updatedAt = updatedAt,
     )
 }

@@ -1,6 +1,7 @@
 package com.bibbi.infrastructure.jpa.entity
 
 import com.bibbi.domain.model.SocialLoginProvider
+import com.bibbi.domain.model.SocialMember
 import com.bibbi.infrastructure.jpa.entity.key.SocialMemberEntityKey
 import jakarta.persistence.*
 
@@ -9,7 +10,7 @@ import jakarta.persistence.*
     Index(name = "social_member_idx1", columnList = "member_id"),
 ])
 @IdClass(SocialMemberEntityKey::class)
-class SocialMember (
+class SocialMemberEntity (
 
     @Id
     @Column(name = "provider")
@@ -23,4 +24,21 @@ class SocialMember (
     @Column(name = "member_id", columnDefinition = "CHAR(26)", nullable = false)
     val memberId : String,
 
-) : BaseEntity()
+) : BaseEntity() {
+
+    companion object {
+        fun fromDomain(socialMember : SocialMember) = with(socialMember) {
+            SocialMemberEntity(
+                provider = provider,
+                identifier = identifier,
+                memberId = memberId,
+            )
+        }
+    }
+
+    fun toDomain() = SocialMember(
+        provider = provider,
+        identifier = identifier,
+        memberId = memberId,
+    )
+}
