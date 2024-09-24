@@ -4,6 +4,7 @@ plugins {
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25" apply false
 	kotlin("plugin.jpa") version "1.9.23" apply false
+	kotlin("kapt") version "1.9.25"
 	id("org.springframework.boot") version "3.3.3" apply false
 	id("io.spring.dependency-management") version "1.1.6" apply false
 
@@ -52,6 +53,7 @@ subprojects {
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		implementation("org.springframework.boot:spring-boot-starter-validation")
 		implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
+		implementation("com.querydsl:querydsl-apt:5.0.0:jakarta")
 		implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 		implementation("org.springframework.boot:spring-boot-starter-actuator")
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -59,6 +61,8 @@ subprojects {
 		implementation("com.github.f4b6a3:ulid-creator:5.2.2")
 		implementation("io.jsonwebtoken:jjwt-api:0.11.5")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
+		kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
+		kapt("org.springframework.boot:spring-boot-configuration-processor")
 		runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
 		runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
 		compileOnly("org.projectlombok:lombok")
