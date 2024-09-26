@@ -3,21 +3,21 @@ package com.bibbi.infrastructure.jpa.gateway
 import com.bibbi.domain.gateway.RealEmojiGateway
 import com.bibbi.domain.model.RealEmoji
 import com.bibbi.infrastructure.jpa.entity.RealEmojiEntity
-import com.bibbi.infrastructure.jpa.repository.JpaRealEmojiRepository
+import com.bibbi.infrastructure.jpa.repository.RealEmojiJpaRepository
 import org.springframework.stereotype.Component
 
 @Component
 class RealEmojiGatewayImpl(
-    private val jpaRealEmojiRepository: JpaRealEmojiRepository
+    private val realEmojiJpaRepository: RealEmojiJpaRepository
 ) : RealEmojiGateway {
     override fun save(realEmoji: RealEmoji) : RealEmoji {
-        return jpaRealEmojiRepository
+        return realEmojiJpaRepository
             .save(RealEmojiEntity.fromDomain(realEmoji))
             .toDomain()
     }
 
     override fun delete(realEmoji: RealEmoji) {
-        jpaRealEmojiRepository.delete(RealEmojiEntity.fromDomain(realEmoji))
+        realEmojiJpaRepository.delete(RealEmojiEntity.fromDomain(realEmoji))
     }
 
     override fun existsByPostIdAndMemberIdAndMemberRealEmojiId(
@@ -25,6 +25,6 @@ class RealEmojiGatewayImpl(
         memberId: String,
         memberRealEmojiId: String
     ): Boolean {
-        return jpaRealEmojiRepository.existsByPostIdAndMemberIdAndMemberRealEmojiId(postId, memberId, memberRealEmojiId)
+        return realEmojiJpaRepository.existsByPostIdAndMemberIdAndMemberRealEmojiId(postId, memberId, memberRealEmojiId)
     }
 }
