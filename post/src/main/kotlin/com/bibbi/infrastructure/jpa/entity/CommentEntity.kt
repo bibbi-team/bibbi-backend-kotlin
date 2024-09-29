@@ -2,12 +2,7 @@ package com.bibbi.infrastructure.jpa.entity
 
 import com.bibbi.domain.model.Comment
 import jakarta.persistence.*
-import lombok.*
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode(callSuper = false)
-@AllArgsConstructor
-@Getter
 @Entity(name = "comment")
 @Table(indexes = [
     Index(name = "comment_idx1", columnList = "post_id"),

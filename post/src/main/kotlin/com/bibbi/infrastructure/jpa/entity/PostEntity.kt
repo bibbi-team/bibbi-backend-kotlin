@@ -3,12 +3,7 @@ package com.bibbi.infrastructure.jpa.entity
 import com.bibbi.domain.model.Post
 import com.bibbi.domain.model.PostType
 import jakarta.persistence.*
-import lombok.*
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode(callSuper = false)
-@AllArgsConstructor
-@Getter
 @Entity(name = "post")
 @Table(indexes = [
     Index(name = "post_idx1", columnList = "member_id")
@@ -78,22 +73,20 @@ class PostEntity private constructor(
     }
 
     companion object {
-        fun fromDomain(post: Post): PostEntity {
-            val postEntity = PostEntity(
-                id = post.id,
-                memberId = post.memberId,
-                familyId = post.familyId,
-                missionId = post.missionId,
-                type = post.type,
-                postImgUrl = post.postImgUrl,
-                postImgKey = post.postImgKey,
-                content = post.content,
-                commentCnt = post.commentCnt,
-                reactionCnt = post.reactionCnt,
-                realEmojiCnt = post.realEmojiCnt
+        fun fromDomain(post: Post) = with(post) {
+            PostEntity(
+                id = id,
+                memberId = memberId,
+                familyId = familyId,
+                missionId = missionId,
+                type = type,
+                postImgUrl = postImgUrl,
+                postImgKey = postImgKey,
+                content = content,
+                commentCnt = commentCnt,
+                reactionCnt = reactionCnt,
+                realEmojiCnt = realEmojiCnt
             )
-
-            return postEntity
         }
     }
 }

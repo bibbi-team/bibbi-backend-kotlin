@@ -60,6 +60,7 @@ subprojects {
 		implementation("org.springframework.boot:spring-boot-starter-security")
 		implementation("com.github.f4b6a3:ulid-creator:5.2.2")
 		implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
 		kapt("org.springframework.boot:spring-boot-configuration-processor")
 		runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
