@@ -22,7 +22,7 @@ class MemberDeviceEntity (
 ) : BaseEntity() {
 
     companion object {
-        fun fromDomain(memberDevice: MemberDeviceEntity) = with(memberDevice) {
+        fun fromDomain(memberDevice: MemberDevice) = with(memberDevice) {
             MemberDeviceEntity(
                 memberId = memberId,
                 fcmToken = fcmToken,

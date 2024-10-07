@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface MemberDeviceJpaRepository : JpaRepository<MemberDeviceEntity, MemberDeviceEntityKey> {
 
-    fun findAllByMemberId(memberId: String?): List<MemberDeviceEntity>
-    fun deleteAllByFcmToken(fcmToken: String?)
-    fun deleteAllByMemberId(fcmToken: String?)
+    fun findAllByMemberId(memberId: String): List<MemberDeviceEntity>
+    fun deleteAllByFcmToken(fcmToken: String)
+    fun deleteAllByMemberId(memberId: String)
 }
