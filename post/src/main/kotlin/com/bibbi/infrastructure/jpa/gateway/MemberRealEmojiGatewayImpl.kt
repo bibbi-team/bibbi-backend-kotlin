@@ -32,7 +32,7 @@ class MemberRealEmojiGatewayImpl(
     override fun findAllByMemberIdAndFamilyId(memberId: String, familyId: String): List<MemberRealEmoji> {
         return memberRealEmojiJpaRepository
             .findAllByMemberIdAndFamilyId(memberId, familyId)
-            .map(MemberRealEmojiEntity::toDomain)
+            .map { it.toDomain() }
             .toList()
     }
 }

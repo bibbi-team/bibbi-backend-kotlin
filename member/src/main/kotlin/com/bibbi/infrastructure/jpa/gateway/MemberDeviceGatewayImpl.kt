@@ -28,7 +28,7 @@ class MemberDeviceGatewayImpl(
     override fun findAllByMemberId(memberId: String): List<MemberDevice> {
         return memberDeviceJpaRepository
             .findAllByMemberId(memberId)
-            .map(MemberDeviceEntity::toDomain)
+            .map { it.toDomain() }
     }
 
     override fun delete(memberDevice: MemberDevice) {

@@ -20,7 +20,7 @@ class ReactionGatewayImpl(
     override fun findAllByPostId(postId: String): List<Reaction> {
         return reactionJpaRepository
             .findAllByPostId(postId)
-            .map(ReactionEntity::toDomain)
+            .map { it.toDomain() }
             .toList()
     }
 

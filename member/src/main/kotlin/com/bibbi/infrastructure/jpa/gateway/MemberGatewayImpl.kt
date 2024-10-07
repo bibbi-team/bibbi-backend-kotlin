@@ -30,13 +30,13 @@ class MemberGatewayImpl(
     override fun findAllByFamilyIdAndDeletedAtIsNull(familyId: String): List<Member> {
         return memberJpaRepository
             .findAllByFamilyIdAndDeletedAtIsNull(familyId)
-            .map(MemberEntity::toDomain)
+            .map { it.toDomain() }
     }
 
     override fun findAllByFamilyIdAndDeletedAtIsNull(familyId: String, pageRequest: PageRequest): Page<Member> {
         return memberJpaRepository
             .findAllByFamilyIdAndDeletedAtIsNull(familyId, pageRequest)
-            .map(MemberEntity::toDomain)
+            .map { it.toDomain() }
     }
 
     override fun findAllByFamilyIdAndFamilyJoinAtBeforeAndDeletedAtIsNull(
@@ -45,13 +45,13 @@ class MemberGatewayImpl(
     ): List<Member> {
         return memberJpaRepository
             .findAllByFamilyIdAndFamilyJoinAtBeforeAndDeletedAtIsNull(familyId, familyJoinAt)
-            .map(MemberEntity::toDomain)
+            .map { it.toDomain() }
     }
 
     override fun findAllByDeletedAtIsNull(): List<Member> {
         return memberJpaRepository
             .findAllByDeletedAtIsNull()
-            .map(MemberEntity::toDomain)
+            .map { it.toDomain() }
     }
 
     override fun existsByIdAndDeletedAtIsNotNull(memberId: String): Boolean {

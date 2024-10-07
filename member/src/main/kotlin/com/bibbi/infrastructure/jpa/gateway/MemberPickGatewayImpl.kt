@@ -43,7 +43,7 @@ class MemberPickGatewayImpl(
     ): List<MemberPick> {
         return memberPickJpaRepository
             .findAllByFamilyIdAndDateAndToMemberId(familyId, date, toMemberId)
-            .map(MemberPickEntity::toDomain)
+            .map { it.toDomain() }
     }
 
     override fun findAllByFamilyIdAndDateAndFromMemberId(
@@ -53,7 +53,7 @@ class MemberPickGatewayImpl(
     ): List<MemberPick> {
         return memberPickJpaRepository
             .findAllByFamilyIdAndDateAndFromMemberId(familyId, date, fromMemberId)
-            .map(MemberPickEntity::toDomain)
+            .map { it.toDomain() }
     }
 
     override fun delete(pickId: String) {
