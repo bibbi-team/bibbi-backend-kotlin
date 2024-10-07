@@ -2,11 +2,11 @@ package com.bibbi.infrastructure.jpa.entity
 
 import com.bibbi.domain.model.MemberQuitReasonType
 import com.bibbi.domain.model.MemberQuitReason
-import com.bibbi.infrastructure.jpa.entity.key.MemberQuitReasonEntityId
+import com.bibbi.infrastructure.jpa.entity.key.MemberQuitReasonEntityKey
 import jakarta.persistence.*
 
 @Entity(name = "member_quit_reason")
-@IdClass(MemberQuitReasonEntityId::class)
+@IdClass(MemberQuitReasonEntityKey::class)
 class MemberQuitReasonEntity (
 
     @Id
