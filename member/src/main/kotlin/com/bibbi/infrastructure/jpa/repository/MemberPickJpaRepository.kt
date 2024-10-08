@@ -12,13 +12,11 @@ interface MemberPickJpaRepository : JpaRepository<MemberPickEntity, String> {
         date: LocalDate,
         toMemberId: String
     ): MemberPickEntity?
-
     fun findAllByFamilyIdAndDateAndToMemberId(
         familyId: String,
         date: LocalDate,
         toMemberId: String
     ): List<MemberPickEntity>
-
     fun findAllByFamilyIdAndDateAndFromMemberId(
         familyId: String,
         date: LocalDate,
