@@ -1,7 +1,7 @@
 rootProject.name = "bibbi"
 
 include("common")
-include("gateway")
+include("bootstrap")
 include("member")
 include("family")
 include("post")
